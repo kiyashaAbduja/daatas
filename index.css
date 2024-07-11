@@ -1,0 +1,511 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Add this to your global CSS file (e.g., styles.css) */
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Theme Adjustments */
+body {
+  background-color: #f3f4f6;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.bg-blue-600 {
+  background-color: #2563eb;
+}
+
+.bg-blue-700 {
+  background-color: #1d4ed8;
+}
+
+.focus\:ring-blue-500:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* input field */
+
+/* animations.css */
+@keyframes borderExpand {
+  0% {
+    border-width: 2px;
+  }
+  100% {
+    border-width: 4px;
+  }
+}
+
+.animate-border-expand {
+  animation: borderExpand 0.3s forwards;
+}
+
+@keyframes hoverExpand {
+  0% {
+    border-width: 2px;
+  }
+  100% {
+    border-width: 3px;
+  }
+}
+
+.animate-hover-expand:hover {
+  animation: hoverExpand 0.3s forwards;
+}
+
+/* Add this to your global CSS file (e.g., styles.css) */
+
+.input-border-animation {
+  border: 2px solid blue;
+  transition: border 0.3s ease;
+}
+
+.input-border-animation:hover,
+.input-border-animation:focus {
+  background: url("./assets/input-border.svg") no-repeat;
+  background-size: 100% 100%;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+}
+
+/* button */
+.button-pulse {
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.button-pulse:hover {
+  transform: scale(1.1);
+}
+
+.button-ripple {
+  position: relative;
+  overflow: hidden;
+  background-color: #0b5a9a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-ripple::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle,
+    rgb(0, 0, 0) 10%,
+    red 10%,
+    transparent 10%
+  );
+  background-size: 12px 7px;
+  pointer-events: none;
+  transition: transform 0.6s, opacity 1s;
+  transform: scale(10);
+  opacity: 0;
+}
+
+.button-ripple:active::after {
+  transform: scale(0);
+  opacity: 0.3;
+  transition: 0s;
+}
+.button-slide {
+  background: linear-gradient(to right, #3b82f6, #96146d);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-size: 200% auto;
+  transition: background-position 0.4s;
+}
+
+.button-slide:hover {
+  background-position: right center;
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+
+/* card */
+
+/* .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-info {
+  transition: background-color 0.3s ease;
+}
+
+.card-info:hover {
+  background-color: #f0f0f0;
+}
+
+.button-bounce {
+  background-color: #f97316;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+.button-bounce:hover {
+  animation-play-state: paused;
+} */
+
+/* animation bg card */
+.relative {
+  position: relative;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.rounded-xl {
+  border-radius: 1rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.transform {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover\:shadow-lg:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bg-purple-600 {
+  background-color: #8a2be2;
+}
+
+.w-16 {
+  width: 4rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.rounded-bl-xl {
+  border-bottom-left-radius: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-md {
+  font-size: 1rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray-600 {
+  color: #4a5568;
+}
+
+.bg-gray-200 {
+  background-color: #edf2f7;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.text-gray-700 {
+  color: #4a5568;
+}
+
+/* path/to/your/css/file.css */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes rotate-12 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(12deg);
+  }
+}
+
+.hover\\:rotate-12:hover {
+  animation: rotate-12 0.3s ease-in-out forwards;
+}
+
+/* path/to/your/css/file.css */
+
+/* .card-bg-animation {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  transition: background 0.3s ease-in-out;
+}
+
+.card-bg-animation:hover {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes rotate-12 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(12deg);
+  }
+}
+
+.hover\\:rotate-12:hover {
+  animation: rotate-12 0.3s ease-in-out forwards;
+} */
+
+/* .card-bg-animation .bg-animation {
+  height: 64px;
+  width: 64px;
+  background-color: #6b21a8;
+
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  border-radius: 50%;
+
+  transition: transform 0.5s ease, background-color 0.3s ease;
+
+  transform-origin: top right;
+  transform: scale(0);
+}
+
+.card-bg-animation:hover .bg-animation,
+.card-bg-animation:focus .bg-animation {
+  transform: scale(15);
+}
+
+.card-bg-animation:hover .bg-animation:hover {
+  background-color: #3b82f6; /* Change the hover color if needed 
+} */
+.card-bg-animation .bg-animation {
+  height: 64px;
+  width: 64px;
+  background-color: #6b21a8;
+
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  border-radius: 50%;
+
+  transition: transform 0.5s ease, background-color 0.3s ease;
+
+  transform-origin: top right;
+  transform: scale(0);
+}
+
+.card-bg-animation:hover .bg-animation,
+.card-bg-animation:focus .bg-animation {
+  transform: scale(15);
+}
+
+.card-bg-animation .content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-bg-animation:hover .bg-animation:hover {
+  background-color: #3b82f6; /* Change the hover color if needed */
+}
